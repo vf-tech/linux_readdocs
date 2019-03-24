@@ -13,6 +13,14 @@ Welcome to embed_linux_edu's documentation!
    markdown
 
 
+.. toctree::
+   :maxdepth: 2
+   :caption: U-Boot:
+   
+   markdown
+
+
+
 Indices and tables
 ==================
 

@@ -3,15 +3,33 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to embed_linux_edu's documentation!
+Gömülü Linux Notları
 ===========================================
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
+   :caption: Giriş:
    
    markdown
 
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Bootloader:
+   
+   uboot
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Kernel:
+   
+   uboot   
+
+.. toctree::
+   :maxdepth: 2
+   :caption: RootFS:
+   
+   rootfs 
 
 Indices and tables
 ==================

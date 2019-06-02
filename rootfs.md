@@ -13,7 +13,7 @@ Deneme123
 
 ## Yocto
 
-## Buildroot
+## Buildro
 
 ## Hazır Dağıtımlar
 

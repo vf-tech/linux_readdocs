@@ -10,8 +10,13 @@ Gömülü Linux Notları
    :maxdepth: 2
    :caption: Giriş:
    
-   markdown
+   entry
 
+.. toctree::
+   :maxdepth: 2
+   :caption: Gömülü Linux Sistem Parçaları:
+   
+   embed_linux_parts
 
 .. toctree::
    :maxdepth: 2
@@ -30,6 +35,10 @@ Gömülü Linux Notları
    :caption: RootFS:
    
    rootfs 
+
+
+   Kaynakça
+   Glossarry 
 
 Indices and tables
 ==================

@@ -8,27 +8,29 @@ Gömülü Linux Notları
 
 .. toctree::
    :maxdepth: 2
-   :caption: Giriş:
+   :caption: Giriş
    
    entry
 
 .. toctree::
    :maxdepth: 2
-   :caption: Gömülü Linux Sistem Parçaları:
+   :caption: Başlarken
    
-   embed_linux_parts
+   folder_org
+   toolchain
 
 .. toctree::
    :maxdepth: 2
-   :caption: Bootloader:
+   :caption: Bootloader
    
-   uboot
+   bootloader
 
 .. toctree::
    :maxdepth: 2
    :caption: Kernel:
    
-   uboot   
+   bootloader
+   rootfs    
 
 .. toctree::
    :maxdepth: 2

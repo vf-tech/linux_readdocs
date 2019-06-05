@@ -8,6 +8,19 @@ Yukarıdaki paragrafa bağlı olarak Gömülü Linux ise belli amaca yönelik pr
 
 Aynı zamanda tekrar yukarıda bulunan paragrafa atıfla sistemin olabildiğince ucuz olması gereklidir bu nedenle *işi yapabilecek kadar* sistemin hafif olması büyük olasılıkla maliyetleri azaltacaktır. 
 
+# Gömülü Linux Mimarisi
+
+Gömülü Linux içeren bir sistem temelde 4 parçadan oluşur. 
+
+* Bootloader
+* Kernel 
+* RootFS
+* Cihaza yönelik kullanıcı uygulamaları
+
+İlk 3 maddeye kısaca BSP (Board Support Package) denilir ve bu kitapta BSP konularını kapsamaktadır.
+
+//TODO # Neden Gömülü Linux Kullanılmalı?
+
 # Motivasyon ve Amaç
 
 Gömülü Linux dünyası şuan çeşitli **_PI** boardların işgali altında. Bu durum donanımsal açıdan baktığınız zaman mükemmel, S3C2416'lı boardların hayal olduğu günlerden Kadıköy'den RasPI alabildiğiniz günlere gelebilmek.

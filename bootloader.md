@@ -4,11 +4,7 @@ Bootloader, bilgisayar yada gömülü bir sistem ilk enerji verildiğinde çalı
 
 PC(x86) makinalar için kullanılan bootloader bilindiği üzere BIOS'tur. Gömülü Linux sistemlerini genelde ARM mikroişlemciler kullanılmaktadır ve en yaygın olarak kullanılan bootloader U-Boot'tur.
 
-<<<<<<< HEAD
 U-Boot Denx firması tarafından geliştirilen ücretsiz genel amaçlı bir bootloaderdır. U-Boot bir çok mimariyi desteklemektedirler(ARM, MIPS, x86 vs.) U-Boot günümüzde özellikle gömülü linux sistemleri için *de-facto* standart haline gelmiştir. 
-=======
-U-Boot Denx firması tarafından geliştirilen ücretsiz genel amaçlı bir bootloaderdır. U-Boot bir çok mimariyi desteklemektedirler(ARM, MIPS, x86 vs.) U-Boot günümüzde özellikle gömülü linux sistemleri için de-facto standart haline gelmiştir. 
->>>>>>> 3f55dca7a4880b25d47d8479df5c4778c1817c74
 
 U-Boot dökümantasyonu şu adreste bulunabilir. http://www.denx.de/wiki/U-Boot/Documentation
 

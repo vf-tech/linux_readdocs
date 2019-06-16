@@ -33,8 +33,6 @@ Gömülü Linux Notları
    :maxdepth: 2
    :caption: Kernel:
    
-   bootloader
-   rootfs    
 
 .. toctree::
    :maxdepth: 2

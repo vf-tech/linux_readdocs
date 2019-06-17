@@ -55,9 +55,14 @@ fdt=load mmc 0:1 ${fdtaddr} am335x-bonegreen.dtb ;
 uenvcmd=run arg;load image;load fdt;bootm ${loadaddr} - ${fdtaddr};
 ~~~
 
-`loadaddr` --> RAM adresi.  
+`loadaddr` --> RAM adresi.
+
 `fdtaddr` --> RAM adresi.  
+
 `arg` --> `setenv` komutu ile `bootargs` değişkeni; konsol ttyO0 (UART0) ve rootfs'in mmcblk0p2 içinde ext4 biçiminde olacak şekilde ayarlanır. `bootargs` içindeki parametreler kernele bildirilir.  
+
 `image` --> mmc0:1 (sd-kart boot bölümü) bölümünden uImage dosyasını okur ve loadaddr adresine yükler.  
+
 `fdt` --> mmc0:1 (sd-kart boot bölümü) bölümünden am335x-bonegreen.dtb dosyasını okur ve fdtaddr adresine yükler.  
+
 `uenvcmd` --> U-Boot'un yürüteceği ilk komuttur. Örneğimizde görüldüğü üzere U-Boot sırasıyla `arg` , `image` , `fdt` komutlarını ve son olarak `bootm` komutunu yürütecektir.   

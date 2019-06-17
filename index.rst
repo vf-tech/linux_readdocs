@@ -21,6 +21,8 @@ Gömülü Linux Notları
    sdcard_prepare
    uart_console_setup
 
+   //TODO BASIC GIT
+
 .. toctree::
    :maxdepth: 2
    :caption: Bootloader

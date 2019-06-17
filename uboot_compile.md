@@ -122,3 +122,79 @@ Mesajlarda derleme tarih ve saati yazmaktadır. Özellikle geliştirme aşaması
 Eğer U-Boot'un otomatik boot prosesini durdurmamış olsaydık U-Boot dahili ortam değişkenlerine bağlı olarak çeşitli yerlerde (MMC0, SPI, Ethernet vs.) Linux çekirdeği arayacaktı, bulamayacağı için ekrana bir tomar mesaj basacaktı ve en sonunda kendi konsoluna düşecekti.
 
 Bu aşamada yapmamız gereken son iş ise bir adet uEnv.txt hazırlamak ve onu kopyalamak.
+
+## Örnek: U-Boot Komut Satırı Değiştirme
+
+İndirdiğimiz U-Boot içerisinde gelen config içinde basit bir değişiklik yapalım, kaydedelim ve bunu patch olarak kaydedelim.
+
+Yapacağımız değişiklik komut satırının başında bulunan `=>` ibaresini değiştirelim. Bu oldukça basit bir değişiklik olup sadece görünüşte olan bir değişikliktir, U-Boot'un çalışmasını etkilemez.
+
+~~~~
+export CC=/opt/workspace/sdk/gcc-linaro-7.3.1-2018.05-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-
+make ARCH=arm menuconfig
+~~~~
+Menüde aşağıdaki şekilde değişiklik yapılır.
+> Command line interface  --->  
+(BEAGLE=> ) Shell prompt 
+
+Tekrar derleyelim ve SD-Karta yükleyeyelim. Ekrana gelen mesajlar şu şekilde olmalı.
+
+![alt text](uboot_compile_prompt.png "U-Boot Komut Satırı")
+
+Yaptığımız değişiklik çalışmış gözüküyor. Peki bu değişikliği nasıl kaydedeceğiz ve patch haline getireceğiz?
+
+Öncelikle kaydetmek için aşağıdaki komutu kullanırız. 
+~~~
+make savedefconfig
+~~~
+Bu komut ile üzerinde çalışmış olduğumuz `.config` dosyası `defconfig` dosyası olarak U-Boot ana klasörü altında kaydedilir. `defconfig` dosyasını `configs/` klasörü altında istediğimiz bir isimle kopyalayalım. Genellikle xxx_defconfig formatı takip edilmekte bizde bbb_defconfig diyelim.
+
+~~~
+cp defconfig configs/bbb_defconfig
+~~~
+
+Peki git tarafından yapılan değişikliklere bakalım
+~~~
+git status
+~~~
+![alt text](uboot_git_status.png "GIT U-Boot Değişikler")
+
+Resimde görüldüğü üzere kopyaladığımız bbb_defconfig dosyası yeni bir dosya olarak gözükmekte ancak `defconfig` dosyası U-Boot git ayarları nedeniyle görmezden gelinmektedir. Bunun nedeni her git reposu içerisinde bir adet `.gitignore` dosyası bulunur ve bu dosya hangi dosya/klasörlerin görmezden gelineceğini bildirir. Bu dosyayı açıp incelemenizi tavsiye ederim.
+
+Bu yeni dosyayı git'e ekleyelim ve ilk commit'imizi yapalım.
+
+~~~
+git add -A
+git status
+~~~
+![alt text](uboot_git_status_1.png "GIT U-Boot Değişikler")
+
+Dosyamız artık git akışı içinde yani bu dosyada ileride yapılacak değişiklikler de artık git tarafından takip edilecek. 
+
+~~~
+git commit -m "BBB defconfig olusturuldu. Komut satiri degisitirildi."
+~~~
+
+İlk commitimizi yaptık. Commitlerin genelde yeteri kadar açıklayıcı olmasına dikkat edin. Commitlerde genelde İngilizce karakter kullanıyorum, tabii tercih meselesi.
+
+Yaptığımızı kontrol edelim.
+
+~~~
+git log
+~~~
+
+![alt text](uboot_git_log.png "GIT U-Boot Değişikler")
+
+Resimde görüldüğü üzere yaptığımız değişiklik commit olarak geçmişte yapılan değişikliklerden sonra gözükmektedir.
+
+Son olarak yama oluşturalım.
+
+~~~
+git format-patch --binary -o patches/ ti-u-boot-2018.01
+~~~
+
+Yama oluşturmak için birkaç komut var ancak ben bunu tercih ediyorum. Bu komut ile `ti-u-boot-2018.01` noktasından itibaren gelen tüm değişiklikleri (commitleri), yama olarak `patches/` klasörü altına koyacağız. `patches/` klasörü görmezden gelinen klasörler arasındadır bu sayede sonsuz bir döngüden kurtulmuş oluruz.
+
+`git format-patch` komutu her biri commiti ayrı bir patch dosyası olarak saklar.
+
+//TODO nereye dosya kopyalanacak.

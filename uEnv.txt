@@ -1,0 +1,1 @@
+uenvcmd=echo "Boot Prosesi Basliyor..."; mmc rescan; mmc dev 0; setenv kerneladdr 0x82000000; setenv dtbaddr 0x88000000; fatload mmc 0:1 ${dtbaddr} am335x-boneblack.dtb; fatload mmc 0:1 ${kerneladdr} zImage; setenv bootargs console=ttyO0,115200n8 root=/dev/mmcblk0p1 rw rootfstype=ext4 rootwait; bootz ${kerneladdr} - ${dtbaddr};

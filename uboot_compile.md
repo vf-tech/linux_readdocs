@@ -37,8 +37,6 @@ git checkout ti-u-boot-2018.01
 
 Bu noktada işlerin karışmaması için kendi branchimizi oluşturmamız gerekiyor. Branch ismi **beagle_dev** olsun. 
 
-//TODO bu noktayı açıkla   
-
 ~~~
 git checkout -b beagle_dev
 ~~~
@@ -54,7 +52,7 @@ git status
 
 Artık U-Boot üzerinde yapacağımız tüm değişiklikler git tarafından takip edilecek.
 
-## U-Boot Derleme (Giriş Seviye)
+## U-Boot Derleme
 
 Temelde Linux, U-Boot, Buildroot derlemek için en gerekli dosya **config** dosyasıdır. Eğer bir boarda ilk defa derleme yapıyorsanız başlangıç için çalışan bir `config` dosyası bulunmaz bir nimettir (özellikle Çin tabanlı işlemcilerle olan kartlarda)
 
@@ -66,8 +64,7 @@ Eğer sizin kartınız ile ilgili `config` dosyası bulamazsanız internetten ar
 ls /opt/workspace/uboot/configs
 ~~~
 
-Biz derlememizi `am335x_evm_config` dosyası ile yapacağız.
-
+Biz derlememizi Processor SDK [dökümanında](http://software-dl.ti.com/processor-sdk-linux/esd/docs/latest/linux/Foundational_Components_U-Boot.html#general-information) yazdığı üzere BBB uyumlu olan `am335x_evm_config` dosyası ile yapacağız.
 ~~~
 cd /opt/workspace/uboot
 make am335x_evm_config
@@ -81,7 +78,7 @@ Kontrol edelim.
 make menuconfig
 ~~~
 
-![alt text](uboot_0.png "U-Boot am335x_evm_config")
+![](uboot_0.png "U-Boot am335x_evm_config")
 
 Resimde görüldüğü üzere U-Boot 2018.01 versiyonda ve ARM çekirdek için derleme yapacak.
 
@@ -113,7 +110,7 @@ Eğer işleri doğru yürüttüysek U-Boot UART üzerinden bize mesajlar gönder
 Eğer UART konsoldan mesajlar geliyorsa, herhangi bir tuş ile sistemin bootunu durduralım.  
 Şöyle birşeyler görmemiz gerekiyor.
 
-![alt text](uboot_first_msg.png "U-Boot İlk Mesajlar")
+![](uboot_first_msg.png "U-Boot İlk Mesajlar")
 
 Mesajlarda görüldüğü üzere öncelikle SPL yükleniyor daha sonra U-Boot yüklenmekte.
 
@@ -123,11 +120,13 @@ Eğer U-Boot'un otomatik boot prosesini durdurmamış olsaydık U-Boot dahili or
 
 Bu aşamada yapmamız gereken son iş ise bir adet uEnv.txt hazırlamak ve onu kopyalamak.
 
-## Örnek: U-Boot Komut Satırı Değiştirme
+## Örnek-1: U-Boot Komut Satırı Değiştirme
 
 İndirdiğimiz U-Boot içerisinde gelen config içinde basit bir değişiklik yapalım, kaydedelim ve bunu patch olarak kaydedelim.
 
 Yapacağımız değişiklik komut satırının başında bulunan `=>` ibaresini değiştirelim. Bu oldukça basit bir değişiklik olup sadece görünüşte olan bir değişikliktir, U-Boot'un çalışmasını etkilemez.
+
+Öncelikle Cross-Compiler tanıtılır ve menuconfig ile menüye girilir.
 
 ~~~~
 export CC=/opt/workspace/sdk/gcc-linaro-7.3.1-2018.05-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-
@@ -139,7 +138,11 @@ Menüde aşağıdaki şekilde değişiklik yapılır.
 
 Tekrar derleyelim ve SD-Karta yükleyeyelim. Ekrana gelen mesajlar şu şekilde olmalı.
 
-![alt text](uboot_compile_prompt.png "U-Boot Komut Satırı")
+~~~
+make ARCH=arm CROSS_COMPILE=$CC -j4
+~~~
+
+![](uboot_compile_prompt.png "U-Boot Komut Satırı")
 
 Yaptığımız değişiklik çalışmış gözüküyor. Peki bu değişikliği nasıl kaydedeceğiz ve patch haline getireceğiz?
 
@@ -150,14 +153,14 @@ make savedefconfig
 Bu komut ile üzerinde çalışmış olduğumuz `.config` dosyası `defconfig` dosyası olarak U-Boot ana klasörü altında kaydedilir. `defconfig` dosyasını `configs/` klasörü altında istediğimiz bir isimle kopyalayalım. Genellikle xxx_defconfig formatı takip edilmekte bizde bbb_defconfig diyelim.
 
 ~~~
-cp defconfig configs/bbb_defconfig
+mv defconfig configs/bbb_defconfig
 ~~~
 
 Peki git tarafından yapılan değişikliklere bakalım
 ~~~
 git status
 ~~~
-![alt text](uboot_git_status.png "GIT U-Boot Değişikler")
+![](uboot_git_status.png "GIT U-Boot Değişikler")
 
 Resimde görüldüğü üzere kopyaladığımız bbb_defconfig dosyası yeni bir dosya olarak gözükmekte ancak `defconfig` dosyası U-Boot git ayarları nedeniyle görmezden gelinmektedir. Bunun nedeni her git reposu içerisinde bir adet `.gitignore` dosyası bulunur ve bu dosya hangi dosya/klasörlerin görmezden gelineceğini bildirir. Bu dosyayı açıp incelemenizi tavsiye ederim.
 
@@ -167,7 +170,7 @@ Bu yeni dosyayı git'e ekleyelim ve ilk commit'imizi yapalım.
 git add -A
 git status
 ~~~
-![alt text](uboot_git_status_1.png "GIT U-Boot Değişikler")
+![](uboot_git_status_1.png "GIT U-Boot Değişikler")
 
 Dosyamız artık git akışı içinde yani bu dosyada ileride yapılacak değişiklikler de artık git tarafından takip edilecek. 
 
@@ -183,7 +186,7 @@ Yaptığımızı kontrol edelim.
 git log
 ~~~
 
-![alt text](uboot_git_log.png "GIT U-Boot Değişikler")
+![](uboot_git_log.png "GIT U-Boot Değişikler")
 
 Resimde görüldüğü üzere yaptığımız değişiklik commit olarak geçmişte yapılan değişikliklerden sonra gözükmektedir.
 
@@ -197,4 +200,48 @@ Yama oluşturmak için birkaç komut var ancak ben bunu tercih ediyorum. Bu komu
 
 `git format-patch` komutu her biri commiti ayrı bir patch dosyası olarak saklar.
 
-//TODO nereye dosya kopyalanacak.
+
+## Örnek-2: MMC Driver Model Özelliğinin Kapatılması
+
+SD kart içindeki dosyalara U-Boot komut satırından bakmaya çalıştığımda SD kartın bulamadığını gördüm. Buradaki en büyük saçmalık SPL U-Boot'u SD karttan yüklüyordu ancak *nedense* U-Boot SD kartı bulamıyordu. 
+
+Sorunun çözümü (https://e2e.ti.com/support/processors/f/791/t/662382) için önerilen ise MMC Driver Model özelliğinin kapatılmasıydı. Bana **2 güne** mal olan bu çözümü uygulayalım.
+
+~~~~
+export CC=/opt/workspace/sdk/gcc-linaro-7.3.1-2018.05-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-
+make ARCH=arm menuconfig
+~~~~
+
+Menüde `> Device Drivers > MMC Host controller Support` altında bulunan `Enable MMC controllers using Driver Model` seçeneğini kapatalım ve derleme yapalım.
+
+~~~
+make ARCH=arm CROSS_COMPILE=$CC -j4
+~~~
+
+MLO ve u-boot.img dosyalarını SD Karta kopyalayalım, kartı çalıştıralım. U-Boot başladığında ise herhangi bir tuşa basarak konsoldan durduralım.
+
+U-Boot komut satırında sırasıyla şu komutları çalıştıralım.
+
+>mmc rescan  
+mmc dev 0  
+fatls mmc 0:1
+
+U-Boot çıktısı şuna benze birşeyler olmalı.
+
+![](uboot_mmc.png)
+
+`mmc rescan` komutu işlemcinin MMC cihazların taraması için kullanılır.  
+`mmc dev 0`  komutu ile 0 nolu (SD Kart) MMC cihazına geçilir. 1 nolu cihaz kart üstünde bulunan eMMC'dir. 
+`fatls mmc 0:1` komutu ile 0 nolu MMC cihazın 1. bölümünün içindekiler listelenir. 1. bölüm FAT32, 2.nci bölüm EXT4 olarak formatladığımız bölümdü.
+
+Son olarak bu değişikliği de yama haline getirelim.
+
+~~~
+make savedefconfig
+mv defconfig configs/bbb_defconfig
+git add -A
+git commit -m "SD Kart okuma sorunu nedeniyle MMC Driver Model kapatildi."
+git format-patch --binary -o patches/ ti-u-boot-2018.01
+~~~
+
+//TODO patchler nerede saklanacak.

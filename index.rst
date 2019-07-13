@@ -22,6 +22,7 @@ Gömülü Linux Notları
    uart_console_setup
 
    //TODO BASIC GIT
+   //TODO Kurulacak PAketler
 
 .. toctree::
    :maxdepth: 2
@@ -34,6 +35,9 @@ Gömülü Linux Notları
 .. toctree::
    :maxdepth: 2
    :caption: Kernel:
+
+   linux_basics
+   linux_compile
    
 
 .. toctree::

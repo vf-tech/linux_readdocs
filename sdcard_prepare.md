@@ -1,20 +1,22 @@
 # SD-Kart Hazırlama
 
-AM335x için sd-kartın belirli formatta hazırlanması gerekmektedir. AM335x RBL aşamasında sd-kartın içinde FAT bir bölüm arar ve buradan SPL dosyasını arar.
+AM335x için SD-Kartın belirli formatta hazırlanması gerekmektedir. AM335x RBL aşamasında SD-Kart içerisinde FAT bir bölüm arar ve bu bölüm içinde SPL dosyasını arar.
 
-SPL Dosyası U-Boot'u, U-Boot Linux Kerneli yükleyecektir. Bu dosyaların hepsi FAT bölümde olacaktır.
-
-RootFS ise sd-kart üzerinde başka bir bölümde (genellikle ext4 formatında) olacaktır.
+AM335x'in MMC/SD Kart Boot prosesi şu şekildedir:
 
 ![alt text](mmc_boot_proc.png "AM335x MMC Boot")
 
-Özetle FAT ve EXT4 formatında olan iki ayrı bölüm olacaktır, gereken adımlar şu şekildedir: 
+SPL Dosyası U-Boot'u, U-Boot Linux Kerneli yükleyecektir. Bu dosyaların hepsi genellikle FAT bölümde olur.
+
+RootFS ise SD-Kart üzerinde başka bir bölümde (genellikle ext4 formatında) olacaktır.
+
+Özetle SD_Kart üzerinde FAT ve EXT4 formatında olan iki ayrı bölüm olacaktır, gereken adımlar şu şekildedir: 
 
 SD-Kart takıldığı zaman Ubuntu tarafında hangi `/dev/` altında yeni bir cihaz olarak belirecektir. Bu isim genelde `sdb,sdc` gibi isimlerle ortaya çıkar. Yanlış bir isim ile işlem yaparsanız mevcut diskinizi uçurabilirsiniz.
 
-Benim sistemimde sd-kart `/dev/sdb` olarak gözükmektedir.
+Benim sistemimde SD-Kart `/dev/sdb` olarak gözükmektedir.
 
-Öncelikle sd-kartın mevcut MBR silinir.
+Öncelikle SD-Kartın mevcut MBR silinir.
 ~~~
 sudo dd if=/dev/zero of=/dev/sdb bs=1M count=16
 ~~~
@@ -39,5 +41,9 @@ sudo mkfs.vfat /dev/sdb1 -n "boot"
 sudo mkfs.ext4 /dev/sdb2 -L "rootfs"
 ~~~
 
+Yukarıdaki SD-Kart işlemlerini otomatik olarak yapmak için hazırladığım [scripti](mksdcard.sh) aşağıdaki komutlar ile kullanabilirsiniz.
 
-
+~~~
+chmod 755 mksdcard.sh
+sudo ./mksdcard.sh /dev/sdb
+~~~

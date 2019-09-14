@@ -44,7 +44,7 @@ Gömülü Linux Notları
    :maxdepth: 2
    :caption: RootFS:
    
-   rootfs 
+   rootfs_basics 
 
 
    Kaynakça

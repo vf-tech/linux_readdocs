@@ -44,15 +44,9 @@ Gömülü Linux Notları
    :maxdepth: 2
    :caption: RootFS:
    
-   rootfs_basics 
+   rootfs_basics
+   br_compile
 
 
-   Kaynakça
-   Glossarry 
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+   //TODO Kaynakça
+   

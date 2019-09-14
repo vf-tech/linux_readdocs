@@ -17,9 +17,9 @@ n
 p
 1
 
-+32M
++128M
 t
-c
+e
 a
 n
 p
@@ -28,8 +28,7 @@ p
 +512M
 w
 EOF
-
-mkfs.vfat -F 32 -n "boot" ${DRIVE}1
-umount ${DRIVE}1
-mkfs.ext3 -L "rootfs" ${DRIVE}2
-umount ${DRIVE}2
+sync
+mkfs.vfat -F 32 -n boot ${DRIVE}1
+mkfs.ext4 -L rootfs ${DRIVE}2
+sync

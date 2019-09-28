@@ -16,10 +16,10 @@ Gömülü Linux Notları
    :maxdepth: 2
    :caption: Başlarken
    
-   folder_org
-   toolchain
-   sdcard_prepare
-   uart_console_setup
+   misc/folder_org
+   misc/toolchain
+   misc/sdcard_prepare
+   misc/uart_console_setup
 
    //TODO BASIC GIT
    //TODO Kurulacak PAketler
@@ -28,24 +28,24 @@ Gömülü Linux Notları
    :maxdepth: 2
    :caption: Bootloader
    
-   bootloader
-   uboot_basics
-   uboot_compile
+   bootlader/bootloader
+   bootlader/uboot_basics
+   bootlader/uboot_compile
 
 .. toctree::
    :maxdepth: 2
    :caption: Kernel:
 
-   linux_basics
-   linux_compile
+   linux/linux_basics
+   linux/linux_compile
    
 
 .. toctree::
    :maxdepth: 2
    :caption: RootFS:
    
-   rootfs_basics
-   br_compile
+   rootfs/rootfs_basics
+   rootfs/br_compile
 
 
    //TODO Kaynakça

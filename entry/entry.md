@@ -4,20 +4,18 @@
 
 [Kaynak](http://www.wikizero.biz/index.php?q=aHR0cHM6Ly90ci53aWtpcGVkaWEub3JnL3dpa2kvRyVDMyVCNm0lQzMlQkNsJUMzJUJDX3Npc3RlbQ"alt")
 
-Yukarıdaki paragrafa bağlı olarak Gömülü Linux ise belli amaca yönelik program(lar) koşturan elektronik bir sistemdir. Bu nedenle Gömülü Linux sistemi normal PC dağıtımlarından(Ubunut, Fedora vs.) farklı olarak sadece amacına yönelik programları içermelidir, örneğin bir fabrikada kayıt işlemlerini takip eden bir sistemde torrent istemcisine gerek yoktur. 
+Yukarıdaki paragrafa bağlı olarak Gömülü Linux ise belli amaca yönelik program(lar) koşturan elektronik bir sistemdir. Bu nedenle Gömülü Linux sistemi normal PC dağıtımlarından(Ubuntu, Fedora vs.) farklı olarak sadece amacına yönelik programları içermelidir, örneğin bir fabrikada kayıt işlemlerini takip eden bir sistemde torrent istemcisine gerek yoktur. 
 
 Aynı zamanda tekrar yukarıda bulunan paragrafa atıfla sistemin olabildiğince ucuz olması gereklidir bu nedenle *işi yapabilecek kadar* sistemin hafif olması büyük olasılıkla maliyetleri azaltacaktır. 
 
 # Gömülü Linux Mimarisi
 
-Gömülü Linux içeren bir sistem temelde 4 parçadan oluşur. 
+Linux bir sistem temelde 4 parçadan oluşur. 
 
 * Bootloader
 * Kernel 
 * RootFS
-* Cihaza yönelik kullanıcı uygulamaları
-
-İlk 3 maddeye kısaca BSP (Board Support Package) denilir ve bu kitapta BSP konularını kapsamaktadır.
+* Kullanıcı alanı (userspace)
 
 //TODO # Neden Gömülü Linux Kullanılmalı?
 

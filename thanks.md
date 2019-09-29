@@ -1,0 +1,4 @@
+# Teşekkürler
+
+* SpeedyX
+* OptimusPrime

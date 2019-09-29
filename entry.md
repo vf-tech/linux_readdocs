@@ -8,14 +8,22 @@ Yukarıdaki paragrafa bağlı olarak Gömülü Linux ise belli amaca yönelik pr
 
 Aynı zamanda tekrar yukarıda bulunan paragrafa atıfla sistemin olabildiğince ucuz olması gereklidir bu nedenle *işi yapabilecek kadar* sistemin hafif olması büyük olasılıkla maliyetleri azaltacaktır. 
 
+Gömlü Linux ile masaüstü linux sistemlerin karşılaştırması aşağıdaki linklerden incelenebilir.
+
+http://embeddedcraft.org/embedlinuxdesktoplinux.html
+
+http://embeddedcraft.org/embeddedlinux.html
+
 # Gömülü Linux Mimarisi
 
-Linux bir sistem temelde 4 parçadan oluşur. 
+Linux bir sistem temelde 4 parçadan oluşur:
 
 * Bootloader
 * Kernel 
-* RootFS
-* Kullanıcı alanı (userspace)
+* Dosya Sistemi (RootFS)
+* Kullanıcı Alanı (userspace) Dosyaları
+
+Kullanıcı alanı dosyaları RootFS içerisinde bulunur ancak bunlar proje kapsamında geliştirdiğimiz programlar, scriptler olduğu için ayrıca bildirmek istedim.
 
 //TODO # Neden Gömülü Linux Kullanılmalı?
 
@@ -29,7 +37,7 @@ Tabii bu kutunun huyunu suyunu bilmeden yapılan geliştirme ne kadar sağlıkl�
 
 Son olarak hazır dağıtımlara olan bağımlılık can sıkıcı olabilir örneğin [armbian](https://www.armbian.com/) mükemmel işler çıkarıyor ancak Allwinner A20 bazı kartlara desteği kesmiş ve TFT sürücü desteği yok (yada ben bulamadım).
 
-Bu Kitabın amacı ise; bu kapalı kutu hakkında bilgi sağlamak ve farkındalık sağlamak, hazır dağıtımlardan sizi kurtarmak :) 
+Bu kitabın amacı ise; bu kapalı kutu hakkında bilgi sağlamak ve farkındalık sağlamak, hazır dağıtımlardan sizi kurtarmak :) 
 
 # Yöntem ve Araçlar
 

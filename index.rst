@@ -46,7 +46,13 @@ Gömülü Linux Notları
    
    rootfs_basics
    br_compile
+   br_sample_dropbear
+   br_sample_rootfsoverlay
 
-
+.. toctree::
+   :maxdepth: 2
+   :caption: Kaynakça
+   
+   thanks
    //TODO Kaynakça
    

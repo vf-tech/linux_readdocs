@@ -19,7 +19,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'Gomülü Linux Notlar'
+project = 'Gomülü Linux Notları'
 copyright = '2019, mehmet.alinbay'
 author = 'mehmet.alinbay'
 

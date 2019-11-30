@@ -17,10 +17,10 @@ Gömülü sistemler için de hazır Linux dağıtımlar bulunmakla beraber kayna
 
 ## Device Tree Kavramı
 
-`Device Tree` donanımı tanımlayan özel bir binary dosyasıdır. Device tree kaynak dosyaları (DTS) C diline benzer sözdizimine sahip bir dosyalardır. DTS dosyaları bir derleyici (DTC) ile derlenir ve DTB dosyaları oluşturulur. DTB dosyaları kernele U-Boot tarafından bildirilir ve kernel bu donanım dosyasına göre kurulum yapar ve çalışır.
+`Device Tree` donanımı tanımlayan özel bir binary dosyasıdır. Device tree kaynak dosyaları (dts) ve include dosyaları (dtsi) C diline benzer sözdizimine sahip bir dosyalardır. Kaynak dosyaları bir derleyici (DTC) ile derlenir ve binary (dtb) dosyaları oluşturulur. Binary dosyaları kernele U-Boot tarafından bildirilir. Kernel bu donanım dosyasına göre kurulum yapar ve çalışır.
 
 Device Tree sistemi özellikle yüzlerce ARM cihazın ortaya çıkmasıyla gereksinim haline gelmiştir.
 
 Device Tree hakkında detaylı bilgi için şu [döküman](https://elinux.org/images/f/f9/Petazzoni-device-tree-dummies_0.pdf) oldukça faydalıdır.
 
-Kernel derleme ile aynı zamanda DTB dosyalarının da derlemesi yapılır. 
+Kernel derleme ile aynı zamanda dtb dosyalarının da derlemesi yapılır. 

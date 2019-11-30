@@ -38,6 +38,7 @@ Gömülü Linux Notları
 
    linux_basics
    linux_compile
+   linux_sample_module
    
 
 .. toctree::

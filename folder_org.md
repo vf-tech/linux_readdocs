@@ -19,5 +19,3 @@ sudo mkdir /opt/workspace/
 sudo chown $USER:$USER /opt/workspace/
 cd /opt/workspace
 ~~~~
-
-sudo apt install sed make binutils gcc g++ bash patch git gzip bzip2 perl tar cpio python unzip rsync wget libncurses-dev

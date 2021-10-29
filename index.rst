@@ -17,6 +17,7 @@ Gömülü Linux Notları
    :caption: Başlarken
    
    folder_org
+   setup_pc
    toolchain
    sdcard_prepare
    uart_console_setup

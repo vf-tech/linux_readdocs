@@ -84,7 +84,7 @@ AM335x serisi için [Processor SDK](http://www.ti.com/tool/PROCESSOR-SDK-AM335X)
 
 Bu kitabı yazarken en son versiyon 5.03'tü. [Download Linki](http://software-dl.ti.com/processor-sdk-linux/esd/AM335X/latest/exports/ti-processor-sdk-linux-am335x-evm-05.03.00.07-Linux-x86-Install.bin)
 
-TI SDK'nin avantajı üretici tarafından yayınlandığından TI forumlarında 8zaten ilk sordukalrı soru SDK versiyonu) daha rahat destek bulabiliyorsunuz ve kısmen TI destekli bir platformda geliştirme yapıyorsunuz.
+TI SDK'nin avantajı üretici tarafından yayınlandığından (TI forumlarında zaten ilk sordukları soru SDK versiyonu) daha rahat destek bulabiliyorsunuz ve kısmen TI destekli bir platformda geliştirme yapıyorsunuz.
 
 SDK kurulumu şu şekildedir:
 

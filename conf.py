@@ -20,7 +20,7 @@
 # -- Project information -----------------------------------------------------
 
 project = 'Gomülü Linux Notları'
-copyright = '2019, mehmet.alinbay'
+copyright = '2021, mehmet.alinbay'
 author = 'mehmet.alinbay'
 
 # The short X.Y version

@@ -22,8 +22,8 @@ Gömülü Linux Notları
    sdcard_prepare
    uart_console_setup
 
-   //TODO BASIC GIT
-   //TODO Kurulacak PAketler
+..   //TODO BASIC GIT
+..   //TODO Kurulacak PAketler
 
 .. toctree::
    :maxdepth: 2
@@ -56,5 +56,5 @@ Gömülü Linux Notları
    :caption: Kaynakça
    
    thanks
-   //TODO Kaynakça
+..  //TODO Kaynakça
    

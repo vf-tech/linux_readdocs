@@ -10,7 +10,7 @@ Gömülü Linux Notları
    :maxdepth: 2
    :caption: Giriş
    
-   entry
+   intro/entry
 
 .. toctree::
    :maxdepth: 2

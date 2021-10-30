@@ -16,11 +16,11 @@ Gömülü Linux Notları
    :maxdepth: 2
    :caption: Başlarken
    
-   folder_org
-   setup_pc
-   toolchain
-   sdcard_prepare
-   uart_console_setup
+   getting_start/folder_org
+   getting_start/setup_pc
+   getting_start/toolchain
+   getting_start/sdcard_prepare
+   getting_start/uart_console_setup
 
 ..   //TODO BASIC GIT
 ..   //TODO Kurulacak PAketler

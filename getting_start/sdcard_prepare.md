@@ -4,7 +4,7 @@ AM335x için SD-Kartın belirli formatta hazırlanması gerekmektedir. AM335x RB
 
 AM335x'in MMC/SD Kart Boot prosesi şu şekildedir:
 
-![alt text](mmc_boot_proc.png "AM335x MMC Boot")
+![](mmc_boot_proc.png "AM335x MMC Boot")
 
 SPL Dosyası U-Boot'u, U-Boot Linux Kerneli yükleyecektir. Bu dosyaların hepsi genellikle FAT bölümde olur.
 
@@ -41,7 +41,7 @@ sudo mkfs.vfat /dev/sdb1 -n "boot"
 sudo mkfs.ext4 /dev/sdb2 -L "rootfs"
 ~~~
 
-Yukarıdaki SD-Kart işlemlerini otomatik olarak yapmak için hazırladığım [scripti](mksdcard.sh) aşağıdaki komutlar ile kullanabilirsiniz.
+Yukarıdaki SD-Kart işlemlerini otomatik olarak yapmak için hazırladığım [scripti](../tools/mksdcard.sh) aşağıdaki komutlar ile kullanabilirsiniz.
 
 ~~~
 chmod 755 mksdcard.sh

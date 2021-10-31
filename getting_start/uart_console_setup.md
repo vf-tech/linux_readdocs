@@ -16,4 +16,4 @@ picocom'dan çıkmak için `CTRL+C` kullanılmalıdır.
 
 USB-TTL UART çeviriciyi karta aşağıdaki şekilde bağlayacağız.
 
-![alt text](BBB-UART-pinout.jpg "BeagleBone UART Konsol Bağlantısı")
+![](BBB-UART-pinout.jpg "BeagleBone UART Konsol Bağlantısı")

@@ -105,4 +105,4 @@ Açıkçası benim tercihim bu yöntem. Çünkü RootFS'i ve geliştireceğimiz 
 
 Şu aşamada Buildroot'u bilmediğimiz varsayarsak; sadece basit bir derleme yapacağız ve onun çıktısı olan SDK'yı kullanacağız. 
 
-[Buildroot ile Basit Derleme](uboot_compile.md) başlığında bu konu anlatılmaktadır.
+[Buildroot ile Basit Derleme](../uboot_compile.md) başlığında bu konu anlatılmaktadır.

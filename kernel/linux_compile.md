@@ -119,7 +119,7 @@ Bu aşamada kernel boot işlemi başlayacak ancak rootfs olmadığı için işle
 
 Tabii her boot işleminde komutları tekrar tekrar girmeyeceğiz, bu komutları uEnv.txt dosyasında saklayacağız. 
 
-Örnek uEnv.txt dosyasını [buradan](uEnv.txt) indirebilirsiniz. Yaptığımız basitçe; yukarıda yazmış olduğumuz komutları özel bir U-Boot ortam değişkeni olan `uenvcmd` içine kaydetmek. U-Boot bu değişkeni yürüteceği için sırasıyla bizim komutları script gibi çalıştıracak. Tabii rootfs olmadığı için "Kernel panic" mesajıyla boot prosesi bitecek. 
+Örnek uEnv.txt dosyasını [buradan](../uEnv.txt) indirebilirsiniz. Yaptığımız basitçe; yukarıda yazmış olduğumuz komutları özel bir U-Boot ortam değişkeni olan `uenvcmd` içine kaydetmek. U-Boot bu değişkeni yürüteceği için sırasıyla bizim komutları script gibi çalıştıracak. Tabii rootfs olmadığı için "Kernel panic" mesajıyla boot prosesi bitecek. 
 
 ![](linux_uEnv_txt_boot.png "Linux uEnv.txt ile boot")
 

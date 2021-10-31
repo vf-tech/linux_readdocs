@@ -103,9 +103,9 @@ Derlememiz başarılı ise çıktılar uboot klasörü altında olacaktır. Bizi
 
 `MLO` ile `u-boot.img` dosyalarının boyutlarına bakmanızı tavsiye ederim.
 
-[SD-Kartı hazırlama](sdcard_prepare) ile kartımızı hazırlayalım. `MLO` ve `u-boot.img` dosyalarını diskin `boot` bölümüne kopyalayalım. 
+[SD-Kartı hazırlama](../getting_start/sdcard_prepare.md) ile kartımızı hazırlayalım. `MLO` ve `u-boot.img` dosyalarını diskin `boot` bölümüne kopyalayalım. 
 
-Eğer işleri doğru yürüttüysek U-Boot UART üzerinden bize mesajlar gönderecektir. SD-Kartı takalım, [UART konsol bağlantısını](uart_console_setup) yapalım ve picocom'dan verileri izleyelim. 
+Eğer işleri doğru yürüttüysek U-Boot UART üzerinden bize mesajlar gönderecektir. SD-Kartı takalım, [UART konsol bağlantısını](../getting_start/uart_console_setup) yapalım ve picocom'dan verileri izleyelim. 
 
 Eğer UART konsoldan mesajlar geliyorsa, herhangi bir tuş ile sistemin bootunu durduralım.  
 Şöyle birşeyler görmemiz gerekiyor.

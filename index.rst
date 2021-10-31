@@ -29,9 +29,9 @@ Gömülü Linux Notları
    :maxdepth: 2
    :caption: Bootloader
    
-   bootloader
-   uboot_basics
-   uboot_compile
+   boot/bootloader
+   boot/uboot_basics
+   boot/uboot_compile
 
 .. toctree::
    :maxdepth: 2

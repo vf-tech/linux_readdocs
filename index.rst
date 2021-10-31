@@ -22,9 +22,6 @@ Gömülü Linux Notları
    getting_start/sdcard_prepare
    getting_start/uart_console_setup
 
-..   //TODO BASIC GIT
-..   //TODO Kurulacak PAketler
-
 .. toctree::
    :maxdepth: 2
    :caption: Bootloader
@@ -57,4 +54,5 @@ Gömülü Linux Notları
    
    thanks
 ..  //TODO Kaynakça
-   
+..  //TODO BASIC GIT
+..  //TODO Kurulacak PAketler   

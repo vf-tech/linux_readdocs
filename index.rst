@@ -37,19 +37,19 @@ Gömülü Linux Notları
    :maxdepth: 2
    :caption: Kernel:
 
-   linux_basics
-   linux_compile
-   linux_sample_module
+   kernel/linux_basics
+   kernel/linux_compile
+   kernel/linux_sample_module
    
 
 .. toctree::
    :maxdepth: 2
    :caption: RootFS:
    
-   rootfs_basics
-   br_compile
-   br_sample_dropbear
-   br_sample_rootfsoverlay
+   rootfs/rootfs_basics
+   rootfs/br_compile
+   rootfs/br_sample_dropbear
+   rootfs/br_sample_rootfsoverlay
 
 .. toctree::
    :maxdepth: 2

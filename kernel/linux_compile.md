@@ -104,14 +104,16 @@ Hazırladığımız SD-Karta bu iki dosyayı kopyalayalım. U-Boot başladığı
 
 U-Boot konsoldan aşağıdaki komutları girelim.
 
-> mmc rescan  
-> mmc dev 0  
-> setenv kerneladdr 0x82000000  
-> setenv dtbaddr 0x88000000  
-> fatload mmc 0:1 ${dtbaddr} am335x-boneblack.dtb  
-> fatload mmc 0:1 ${kerneladdr} zImage
-> setenv bootargs console=ttyO0,115200n8 root=/dev/mmcblk0p1 rw rootfstype=ext4 rootwait   
-> bootz ${kerneladdr} - ${dtbaddr}
+~~~~
+mmc rescan  
+mmc dev 0  
+setenv kerneladdr 0x82000000  
+setenv dtbaddr 0x88000000  
+fatload mmc 0:1 ${dtbaddr} am335x-boneblack.dtb  
+fatload mmc 0:1 ${kerneladdr} zImage
+setenv bootargs console=ttyO0,115200n8 root=/dev/mmcblk0p1 rw rootfstype=ext4 rootwait   
+bootz ${kerneladdr} - ${dtbaddr}
+~~~~
 
 Yukarıdaki komutlara baktığımızda MMC cihazdan *setenv* tanımladığımız `kerneladdr` ve `dtbaddr` RAM adreslerine sırasıyla kernel ve device tree dosyası yüklenir. `bootargs` U-Boot ortamı için özel bir değişkendir, kernele boot esnasında verilecek parametreleri tutar. Verdiğimiz parametreler sırasıyla kernel konsolunun 115200 8n1 formatında ttyO0 (UART0) olacağı, rootfs'in /dev/mmcblk0p1 altında ext4 formatında ve yazılabilir olduğunu bildiriyoruz. En son satırda bootz komutuyla `kerneladdr` ve `dtbaddr` RAM adreslerinden makinanın boot prosesini başlatıyoruz.
 
@@ -119,7 +121,7 @@ Bu aşamada kernel boot işlemi başlayacak ancak rootfs olmadığı için işle
 
 Tabii her boot işleminde komutları tekrar tekrar girmeyeceğiz, bu komutları uEnv.txt dosyasında saklayacağız. 
 
-Örnek uEnv.txt dosyasını [buradan](uEnv.txt) indirebilirsiniz. Yaptığımız basitçe; yukarıda yazmış olduğumuz komutları özel bir U-Boot ortam değişkeni olan `uenvcmd` içine kaydetmek. U-Boot bu değişkeni yürüteceği için sırasıyla bizim komutları script gibi çalıştıracak. Tabii rootfs olmadığı için "Kernel panic" mesajıyla boot prosesi bitecek. 
+Örnek uEnv.txt dosyasını [buradan](../uEnv.txt) indirebilirsiniz. Yaptığımız basitçe; yukarıda yazmış olduğumuz komutları özel bir U-Boot ortam değişkeni olan `uenvcmd` içine kaydetmek. U-Boot bu değişkeni yürüteceği için sırasıyla bizim komutları script gibi çalıştıracak. Tabii rootfs olmadığı için "Kernel panic" mesajıyla boot prosesi bitecek. 
 
 ![](linux_uEnv_txt_boot.png "Linux uEnv.txt ile boot")
 

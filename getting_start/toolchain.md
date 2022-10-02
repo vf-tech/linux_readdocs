@@ -37,7 +37,9 @@ Linaro derlenmiş haldeki toolchain'i https://releases.linaro.org/components/too
 
 Örneğin 7.3'ü kurmak için öncelikle indirip `toolchain` klasörüne açalım.
 ~~~~
-cd workspace/download
+mkdir /opt/workspace/download
+mkdir /opt/workspace/sdk
+cd /opt/workspace/download
 wget https://releases.linaro.org/components/toolchain/binaries/7.3-2018.05/arm-linux-gnueabihf/gcc-linaro-7.3.1-2018.05-x86_64_arm-linux-gnueabihf.tar.xz
 tar xvf gcc-linaro-7.3.1-2018.05-x86_64_arm-linux-gnueabihf.tar.xz -C /opt/workspace/sdk/
 ~~~~
@@ -105,4 +107,4 @@ Açıkçası benim tercihim bu yöntem. Çünkü RootFS'i ve geliştireceğimiz 
 
 Şu aşamada Buildroot'u bilmediğimiz varsayarsak; sadece basit bir derleme yapacağız ve onun çıktısı olan SDK'yı kullanacağız. 
 
-[Buildroot ile Basit Derleme](uboot_compile.md) başlığında bu konu anlatılmaktadır.
+[Buildroot ile Basit Derleme](../boot/uboot_compile.md) başlığında bu konu anlatılmaktadır.

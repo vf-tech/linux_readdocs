@@ -103,8 +103,4 @@ Processor SDK içindeki Toolchain `ti-processor-sdk-linux-am335x-evm-05.03.00.07
 
 ### 4. Buildroot Toolchain'i kullanmak.
 
-Açıkçası benim tercihim bu yöntem. Çünkü RootFS'i ve geliştireceğimiz uygulamaları Buildroot'un toolchain ile derleyeceğiz. Bu nedenle Linux ve U-Boot'un da bu toolchain ile derlenmesini tercih ediyorum. 
-
-Şu aşamada Buildroot'u bilmediğimiz varsayarsak; sadece basit bir derleme yapacağız ve onun çıktısı olan SDK'yı kullanacağız. 
-
-[Buildroot ile Basit Derleme](../boot/uboot_compile.md) başlığında bu konu anlatılmaktadır.
+Açıkçası benim tercihim bu yöntem. Çünkü RootFS'i ve geliştireceğimiz uygulamaları Buildroot'un toolchain ile derleyeceğiz. Bu nedenle Linux ve U-Boot'un da bu toolchain ile derlenmesini tercih ediyorum. Ancak bu aşamada Buildroot kullanmadığımızı kabul edersek en basit çözüm Linaro toolchain kullanılması olacaktır.

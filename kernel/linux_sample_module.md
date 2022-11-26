@@ -4,11 +4,15 @@
 
 *Not: Bu örneği yürütebilmeniz için RootFS'in oluşturulmuş ve SSH üzerinden bağlanmanız gereklidir.*
 
+### Kernel Modülleri Nedir?
+
 Kernel modülleri isteğe bağlı olarak çalışma durumunda yüklenip/çıkartılabilen kod parçalarıdır. Bu sayede sistemi yeniden başlatma gereği olmadan sistemin işlevselliği artırılabilir ([kaynak](https://wiki.archlinux.org/index.php/Kernel_module)).  
 
 Kernel konfigürasyonunda bir girdinin yanında `M` yazıyorsa bu girdi modül olarak derlenecek demektir. Örnek olarak kernel derlemede kullandığımız `omap2plus_defconfig` içerisinde **435** (!) kernel modülü vardır. Konfigürasyon dosyanın içerisine bakmanızı tavsiye ederim.
 
-Kernel modüllerini derleyelim:
+### Kernel Modülleri Kullanımı
+
+Derlediğimiz Kernelin modüllerini yükleyelim:
 
 ~~~
 export CC=/opt/workspace/sdk/gcc-linaro-7.3.1-2018.05-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-
@@ -16,13 +20,13 @@ cd /opt/workspace/linux
 make ARCH=arm CROSS_COMPILE=$CC -j4 modules_install INSTALL_MOD_PATH=out
 ~~~
 
-Yukarıdaki komutlar sonrasında modüller *out* klasörüne kopyalanacaktır.
+Yukarıdaki komutlar sonrasında modüller kernel derlemesini yaptığımız klasörün içerinde *out* klasörüne kopyalanacaktır.
 
-Kernel modülleri RootFS içerisinde `/lib/modules/kernel_release` içerisinde bulunurlar. *kernel_release* değişkendir bu sayede kernel kendisine ait modülleri yükler(Bu durum sahadaki cihazın kernelini güncellediğinizde modüllerin yüklenmemesi sorununa da yol açabilir). Mevcut kernelin dağıtım ismini `uname -r` komutu ile öğrenebiliriz.
+Kernel modülleri RootFS içerisinde `/lib/modules/kernel_release` içerisinde bulunurlar. *kernel_release* değişkendir bu sayede kernel kendisine ait modülleri yükler(Bu durum sahadaki cihazın sadece kernelini güncellediğinizde modüllerin yüklenmemesi sorununa da yol açabilir). Mevcut kernelin dağıtım ismini `uname -r` komutu ile öğrenebiliriz. Örnek:
 
 ![](linux_sample_uname.png) 
 
-Modülleri oluşturduğumuz out klasörünün içerisindeki klasör ağacı /lib/modules/4.14.108-02134-gb02daa7/ şeklindedir. Tüm bu modülleri sistemimize kopyalayalım.
+Modülleri oluşturduğumuz out klasörünün içerisindeki klasör ağacı /lib/modules/4.14.108-02134-gb02daa7/ şeklindedir. Tüm bu modülleri sistemimize kopyalayalım. Bunun için öncelikle derleme yaptığımız klasördeki modül klasörünü sıkıştırıp network üzerinden scp komutu ile cihaza kopyalayacağız. Daha sonra sıkıştırdığımız klasörü açacağız. Elbette kernel modülleri başka yöntemler ile de kopyalanabilir. Ben SD-kartı sök/tak yapmamak için bu yöntemi izledim.
 
 ~~~
 cd out/lib/
@@ -75,3 +79,5 @@ Son olarak `ledtrig-heartbeat` modülünü kaldıralım ve D2 LEDini kapalı kon
 ~~~
 modprobe -r ledtrig-heartbeat
 ~~~
+
+Peki neden modülleri yüklediğimiz zaman bazı LEDler aktifleşti? ve neden bazı LEDler?  Bunun için Linux kernel'e ait başka bir kavram olan Device Tree kavramını incelememiz gerekiyor.

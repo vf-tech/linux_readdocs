@@ -50,16 +50,16 @@ export CC=/opt/workspace/sdk/gcc-linaro-7.3.1-2018.05-x86_64_arm-linux-gnueabihf
 ~~~~
 Kontrol etmek için aşağıdaki komut kullanılır.
 ~~~~
-{CC}gcc --version
+${CC}gcc --version
 ~~~~ 
 
 Çıktı şu şekilde ise işler yolunda demektir.
-
->arm-linux-gnueabihf-gcc (Linaro GCC 7.3-2018.05) 7.3.1 20180425 [linaro-7.3-2018.05 revision d29120a424ecfbc167ef90065c0eeb7f91977701]  
+~~~~
+arm-linux-gnueabihf-gcc (Linaro GCC 7.3-2018.05) 7.3.1 20180425 [linaro-7.3-2018.05 revision d29120a424ecfbc167ef90065c0eeb7f91977701]  
 Copyright (C) 2017 Free Software Foundation, Inc.  
 This is free software; see the source for copying conditions.  
 There is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-
+~~~~
 
 Bu yöntemde her yeni terminal açtığımızda komutu tekrarlamamız gerekmektedir. Bunun yerine toolchain'i `PATH` içine otomatik olarak ekleyebiliriz. Ancak bu yöntemde farklı toolchainler (örneğin aynı makinada hem Linaro hem de CodeSourcery gerekiyorsa) kullanmanız gerektiğinde işler biraz karışabiliyor, bu nedenle ben her terminal açılışında `PATH` içine manuel olarak ekliyorum.
 

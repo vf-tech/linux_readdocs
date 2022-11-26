@@ -1,16 +1,14 @@
-# Kernel Örnekler
+# Kernel Modül Kullanımı
 
-## Örnek: Kernel Modül Kullanımı
+*Not: Bu örneği yürütebilmeniz için RootFS'in oluşturulmuş olması ve SSH üzerinden bağlanmanız gereklidir.*
 
-*Not: Bu örneği yürütebilmeniz için RootFS'in oluşturulmuş ve SSH üzerinden bağlanmanız gereklidir.*
-
-### Kernel Modülleri Nedir?
+## Kernel Modülleri Nedir?
 
 Kernel modülleri isteğe bağlı olarak çalışma durumunda yüklenip/çıkartılabilen kod parçalarıdır. Bu sayede sistemi yeniden başlatma gereği olmadan sistemin işlevselliği artırılabilir ([kaynak](https://wiki.archlinux.org/index.php/Kernel_module)).  
 
 Kernel konfigürasyonunda bir girdinin yanında `M` yazıyorsa bu girdi modül olarak derlenecek demektir. Örnek olarak kernel derlemede kullandığımız `omap2plus_defconfig` içerisinde **435** (!) kernel modülü vardır. Konfigürasyon dosyanın içerisine bakmanızı tavsiye ederim.
 
-### Kernel Modülleri Kullanımı
+## Kernel Modülleri Kullanımı
 
 Derlediğimiz Kernelin modüllerini yükleyelim:
 
